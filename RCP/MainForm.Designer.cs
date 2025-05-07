@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             buttonStartServer = new Button();
             SuspendLayout();
             // 
@@ -41,14 +42,15 @@
             buttonStartServer.UseVisualStyleBackColor = true;
             buttonStartServer.Click += inputStartServer;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(buttonStartServer);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            Name = "Form1";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "MainForm";
             Text = "RCP Remote Control Power";
             ResumeLayout(false);
         }
