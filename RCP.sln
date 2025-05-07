@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RCP", "NetWake\RCP.csproj", "{8F5CD11F-2F3C-4212-8DA7-1B79A81A8214}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RCP", "RCP\RCP.csproj", "{8F5CD11F-2F3C-4212-8DA7-1B79A81A8214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
