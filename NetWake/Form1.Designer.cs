@@ -1,4 +1,4 @@
-﻿namespace NetWake
+﻿namespace RCR
 {
     partial class Form1
     {
@@ -49,7 +49,7 @@
             Controls.Add(buttonStartServer);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form1";
-            Text = "NetWake";
+            Text = "RCP Remote Control Power";
             ResumeLayout(false);
         }
 

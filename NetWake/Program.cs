@@ -1,4 +1,4 @@
-namespace NetWake
+namespace RCR
 {
     internal static class Program
     {

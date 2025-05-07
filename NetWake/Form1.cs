@@ -1,4 +1,4 @@
-namespace NetWake
+namespace RCR
 {
     public partial class Form1 : Form
     {
