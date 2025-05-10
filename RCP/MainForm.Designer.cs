@@ -1,4 +1,4 @@
-﻿namespace RCR
+﻿namespace RCP
 {
     partial class MainForm
     {
@@ -29,25 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            buttonStartServer = new Button();
+            flowPanelDevices = new FlowLayoutPanel();
+            buttonReloadConfig = new Button();
             SuspendLayout();
             // 
-            // buttonStartServer
+            // flowPanelDevices
             // 
-            buttonStartServer.Location = new Point(205, 149);
-            buttonStartServer.Name = "buttonStartServer";
-            buttonStartServer.Size = new Size(311, 128);
-            buttonStartServer.TabIndex = 0;
-            buttonStartServer.Text = "button1";
-            buttonStartServer.UseVisualStyleBackColor = true;
-            buttonStartServer.Click += inputStartServer;
+            flowPanelDevices.Location = new Point(12, 69);
+            flowPanelDevices.Name = "flowPanelDevices";
+            flowPanelDevices.Size = new Size(776, 369);
+            flowPanelDevices.TabIndex = 1;
+            // 
+            // buttonReloadConfig
+            // 
+            buttonReloadConfig.Font = new Font("Impact", 12F);
+            buttonReloadConfig.Location = new Point(319, 18);
+            buttonReloadConfig.Name = "buttonReloadConfig";
+            buttonReloadConfig.Size = new Size(114, 31);
+            buttonReloadConfig.TabIndex = 2;
+            buttonReloadConfig.Text = "Reload Config";
+            buttonReloadConfig.UseVisualStyleBackColor = true;
+            buttonReloadConfig.Click += buttonReloadConfig_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(buttonStartServer);
+            Controls.Add(buttonReloadConfig);
+            Controls.Add(flowPanelDevices);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
@@ -56,7 +66,7 @@
         }
 
         #endregion
-
-        private Button buttonStartServer;
+        private FlowLayoutPanel flowPanelDevices;
+        private Button buttonReloadConfig;
     }
 }

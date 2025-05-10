@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace RCR
+namespace RCP
 {
     public static class WakeOnLan
     {

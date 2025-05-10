@@ -1,4 +1,4 @@
-namespace RCR
+namespace RCP
 {
     internal static class Program
     {

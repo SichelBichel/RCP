@@ -12,12 +12,46 @@ namespace RCP
 {
     public partial class HostCard : UserControl
     {
-        public HostCard()
+        private DeviceConfig config;
+
+        public event Action<DeviceConfig>? OnDeviceStart;
+
+        public HostCard(DeviceConfig config)
         {
             InitializeComponent();
+            this.config = config;
+
+            labelDeviceName.Text = config.DeviceName;
+            labelHostName.Text = config.HostName;
+
+            UpdateStatus(config.IsOnline);
+
+            buttonStartDevice.Click += (s, e) => OnDeviceStart?.Invoke(config);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        public void UpdateStatus(bool? isOnline)
+        {
+            if (isOnline.HasValue)
+            {
+                labelStatus.Text = isOnline.Value ? "Online" : "Offline";
+                labelStatus.ForeColor = isOnline.Value ? Color.Green : Color.Red;
+            }
+            else
+            {
+                labelStatus.Text = "Unknown";
+                labelStatus.ForeColor = Color.Gray;
+            }
+        }
+
+
+
+
+
+
+
+
+
+            private void label2_Click(object sender, EventArgs e)
         {
 
         }

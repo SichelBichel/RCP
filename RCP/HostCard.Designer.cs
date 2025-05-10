@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            button1 = new Button();
+            buttonStartDevice = new Button();
             panel1 = new Panel();
-            label2 = new Label();
             label3 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            label2 = new Label();
+            labelHostName = new Label();
+            labelStatus = new Label();
+            labelDeviceName = new Label();
+            labelIP = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,14 +52,14 @@
             label1.Text = "Device:";
             label1.Click += label1_Click;
             // 
-            // button1
+            // buttonStartDevice
             // 
-            button1.Location = new Point(15, 51);
-            button1.Name = "button1";
-            button1.Size = new Size(86, 60);
-            button1.TabIndex = 1;
-            button1.Text = "Start Device";
-            button1.UseVisualStyleBackColor = true;
+            buttonStartDevice.Location = new Point(15, 51);
+            buttonStartDevice.Name = "buttonStartDevice";
+            buttonStartDevice.Size = new Size(86, 60);
+            buttonStartDevice.TabIndex = 1;
+            buttonStartDevice.Text = "Start Device";
+            buttonStartDevice.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -68,6 +70,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(79, 60);
             panel1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 35);
+            label3.Margin = new Padding(3, 5, 3, 5);
+            label3.Name = "label3";
+            label3.Padding = new Padding(0, 0, 0, 5);
+            label3.Size = new Size(0, 20);
+            label3.TabIndex = 2;
             // 
             // label2
             // 
@@ -81,45 +93,59 @@
             label2.Text = "IP:";
             label2.Click += label2_Click_1;
             // 
-            // label3
+            // labelHostName
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 35);
-            label3.Margin = new Padding(3, 5, 3, 5);
-            label3.Name = "label3";
-            label3.Padding = new Padding(0, 0, 0, 5);
-            label3.Size = new Size(0, 20);
-            label3.TabIndex = 2;
+            labelHostName.AutoSize = true;
+            labelHostName.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelHostName.Location = new Point(15, 15);
+            labelHostName.Name = "labelHostName";
+            labelHostName.Size = new Size(90, 20);
+            labelHostName.TabIndex = 3;
+            labelHostName.Text = "ServerName";
             // 
-            // label5
+            // labelStatus
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 15);
-            label5.Name = "label5";
-            label5.Size = new Size(90, 20);
-            label5.TabIndex = 3;
-            label5.Text = "ServerName";
+            labelStatus.AutoSize = true;
+            labelStatus.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelStatus.ForeColor = Color.Red;
+            labelStatus.Location = new Point(245, 15);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(28, 20);
+            labelStatus.TabIndex = 4;
+            labelStatus.Text = "Off";
             // 
-            // label6
+            // labelDeviceName
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(245, 15);
-            label6.Name = "label6";
-            label6.Size = new Size(28, 20);
-            label6.TabIndex = 4;
-            label6.Text = "Off";
+            labelDeviceName.AutoSize = true;
+            labelDeviceName.Location = new Point(211, 56);
+            labelDeviceName.Margin = new Padding(3, 5, 3, 5);
+            labelDeviceName.Name = "labelDeviceName";
+            labelDeviceName.Padding = new Padding(0, 0, 0, 5);
+            labelDeviceName.Size = new Size(59, 20);
+            labelDeviceName.TabIndex = 5;
+            labelDeviceName.Text = "DevName";
+            // 
+            // labelIP
+            // 
+            labelIP.AutoSize = true;
+            labelIP.Location = new Point(211, 86);
+            labelIP.Margin = new Padding(3, 5, 3, 5);
+            labelIP.Name = "labelIP";
+            labelIP.Padding = new Padding(0, 0, 0, 5);
+            labelIP.Size = new Size(37, 20);
+            labelIP.TabIndex = 3;
+            labelIP.Text = "DevIP";
             // 
             // HostCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label6);
-            Controls.Add(label5);
+            Controls.Add(labelIP);
+            Controls.Add(labelDeviceName);
+            Controls.Add(labelStatus);
+            Controls.Add(labelHostName);
             Controls.Add(panel1);
-            Controls.Add(button1);
+            Controls.Add(buttonStartDevice);
             Name = "HostCard";
             Size = new Size(298, 132);
             panel1.ResumeLayout(false);
@@ -131,11 +157,13 @@
         #endregion
 
         private Label label1;
-        private Button button1;
+        private Button buttonStartDevice;
         private Panel panel1;
         private Label label3;
         private Label label2;
-        private Label label5;
-        private Label label6;
+        private Label labelHostName;
+        private Label labelStatus;
+        private Label labelDeviceName;
+        private Label labelIP;
     }
 }
