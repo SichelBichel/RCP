@@ -129,7 +129,7 @@ namespace RCP
                 XmlSerializer serializer = new XmlSerializer(typeof(List<DeviceConfig>));
                 using FileStream stream = new FileStream("DeviceConfig.xml", FileMode.Create);
                 serializer.Serialize(stream, defaultDevices);
-                buttonReloadConfig_Click(null, null);
+                awaitCFGEN();
                 return defaultDevice;
             }
             catch (Exception ex)
@@ -139,7 +139,11 @@ namespace RCP
             }
         }
 
-
+        private async Task awaitCFGEN()
+        {
+            await Task.Delay(250);
+            buttonReloadConfig_Click(null, null);
+        }
 
         private async void StartBackgroundStatusPolling()
         {
