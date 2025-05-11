@@ -129,7 +129,7 @@ namespace RCP
                 XmlSerializer serializer = new XmlSerializer(typeof(List<DeviceConfig>));
                 using FileStream stream = new FileStream("DeviceConfig.xml", FileMode.Create);
                 serializer.Serialize(stream, defaultDevices);
-
+                buttonReloadConfig_Click(null, null);
                 return defaultDevice;
             }
             catch (Exception ex)
