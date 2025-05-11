@@ -33,8 +33,11 @@
             buttonReloadConfig = new Button();
             buttonOpenConfig = new Button();
             panel1 = new Panel();
+            button1 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            label1 = new Label();
+            linkLabel1 = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -75,12 +78,24 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(buttonOpenConfig);
             panel1.Controls.Add(buttonReloadConfig);
-            panel1.Location = new Point(714, 28);
+            panel1.Location = new Point(594, 27);
             panel1.Name = "panel1";
-            panel1.Size = new Size(240, 43);
+            panel1.Size = new Size(360, 43);
             panel1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Impact", 12F);
+            button1.Location = new Point(240, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(114, 36);
+            button1.TabIndex = 7;
+            button1.Text = "Help";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += inputHelpButton;
             // 
             // pictureBox1
             // 
@@ -102,11 +117,33 @@
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(853, 73);
+            label1.Name = "label1";
+            label1.Size = new Size(75, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Version: 1.0.0";
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(621, 73);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(176, 15);
+            linkLabel1.TabIndex = 8;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "https://rehoga-interactive.com/";
+            linkLabel1.LinkClicked += urlOpened;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(966, 483);
+            Controls.Add(linkLabel1);
+            Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
@@ -120,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -129,5 +167,8 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Button button1;
+        private Label label1;
+        private LinkLabel linkLabel1;
     }
 }

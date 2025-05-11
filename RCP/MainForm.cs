@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Xml.Serialization;
 
@@ -164,8 +165,28 @@ namespace RCP
 
         private void inputStartServer(object sender, EventArgs e)
         {
-            WakeOnLan.SendMagicPacket("94-57-A5-6C-E5-82", "192.168.1.255", 9);
+            //WakeOnLan.SendMagicPacket("94-57-A5-6C-E5-82", "192.168.1.255", 9);
         }
+
+        private void urlOpened(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url = "https://rehoga-interactive.com/";
+
+            try
+            {
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
 
         private void flowPanelDevices_Paint(object sender, PaintEventArgs e)
         {
@@ -175,6 +196,18 @@ namespace RCP
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void inputHelpButton(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo("help.txt") { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
