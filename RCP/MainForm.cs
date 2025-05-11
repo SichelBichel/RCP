@@ -6,9 +6,17 @@ namespace RCP
     public partial class MainForm : Form
     {
         private List<DeviceConfig> devices = new();
+        private CancellationTokenSource statusCts;
         public MainForm()
         {
             InitializeComponent();
+            PostInit();
+            flowPanelDevices.AutoScroll = true;
+            flowPanelDevices.HorizontalScroll.Enabled = false;
+            flowPanelDevices.HorizontalScroll.Visible = false;
+            flowPanelDevices.VerticalScroll.Visible = true;
+            flowPanelDevices.VerticalScroll.Enabled = true;
+            flowPanelDevices.AutoScrollMinSize = new Size(0, flowPanelDevices.Height + 1);
         }
 
         private async Task PostInit()
@@ -17,6 +25,7 @@ namespace RCP
             {
                 await Task.Delay(250);
                 buttonReloadConfig_Click(null, null);
+                StartBackgroundStatusPolling();
             }
             catch (Exception ex)
             {
@@ -77,7 +86,8 @@ namespace RCP
             string filePath = "DeviceConfig.xml";
             if (!File.Exists(filePath))
             {
-                MessageBox.Show($"{filePath} not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{filePath} not found, Generating...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CreateDefaultConfig();
                 return;
             }
             try
@@ -99,11 +109,54 @@ namespace RCP
         }
 
 
+        private DeviceConfig CreateDefaultConfig()
+        {
+            try
+            {
+                var defaultDevice = new DeviceConfig
+                {
+                    HostName = "HostName",
+                    DeviceName = "DeviceName",
+                    MacAddress = "127.0.0.1",
+                    BroadcastAddress = "127.0.0.255",
+                    DeviceIP = "127.0.0.1",
+                    Port = 9,
+                };
+
+                var defaultDevices = new List<DeviceConfig> { defaultDevice };
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<DeviceConfig>));
+                using FileStream stream = new FileStream("DeviceConfig.xml", FileMode.Create);
+                serializer.Serialize(stream, defaultDevices);
+
+                return defaultDevice;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Exception while generating new CFG: {ex.Message}", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
 
 
 
+        private async void StartBackgroundStatusPolling()
+        {
+            statusCts = new CancellationTokenSource();
+            while (!statusCts.Token.IsCancellationRequested)
+            {
+                foreach (Control control in flowPanelDevices.Controls)
+                {
+                    if (control is HostCard card)
+                    {
+                        var device = card.DeviceConfig;
+                        _ = UpdateServerStatusAsync(device, card);
+                    }
+                }
 
-
+                await Task.Delay(1000, statusCts.Token); // Wait 1 second
+            }
+        }
 
 
 
@@ -112,6 +165,16 @@ namespace RCP
         private void inputStartServer(object sender, EventArgs e)
         {
             WakeOnLan.SendMagicPacket("94-57-A5-6C-E5-82", "192.168.1.255", 9);
+        }
+
+        private void flowPanelDevices_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

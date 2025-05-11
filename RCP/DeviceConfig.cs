@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace RCP
 {
@@ -14,6 +15,8 @@ namespace RCP
         public string BroadcastAddress { get; set; } = "broadcast address";
         public string DeviceIP { get; set; } = "DeviceIP";
         public int Port { get; set; } = 9;
+
+        [XmlIgnore]
         public bool? IsOnline { get; set; } = null;
     }
 }

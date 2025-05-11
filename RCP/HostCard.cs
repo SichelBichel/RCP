@@ -16,6 +16,7 @@ namespace RCP
 
         public event Action<DeviceConfig>? OnDeviceStart;
 
+        public DeviceConfig DeviceConfig => config;
         public HostCard(DeviceConfig config)
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace RCP
 
 
 
-            private void label2_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -62,6 +63,11 @@ namespace RCP
         }
 
         private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
         {
 
         }

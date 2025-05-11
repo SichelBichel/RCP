@@ -11,12 +11,23 @@ namespace RCP
 {
     public static class WakeOnLan
     {
-        public static void SendMagicPacket(string macAddress, string broadcastIP = "192.168.1.255", int port = 9)
+        public static void SendMagicPacket(string macAddress, string broadcastIP, int port)
         {
             macAddress = Regex.Replace(macAddress, "[-:]", "");
             if (macAddress.Length != 12)
             {
-                throw new ArgumentException("Invalid MAC address format.");
+                MessageBox.Show("MAC-Address is in Wrong format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!IPAddress.TryParse(broadcastIP, out _))
+            {
+                MessageBox.Show("Broadcast-Address is in Wrong format!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (port < 1 || port > 65535)
+            {
+                MessageBox.Show("Port out of range!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             byte[] macBytes = new byte[6];

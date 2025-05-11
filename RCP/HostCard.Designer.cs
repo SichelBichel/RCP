@@ -66,7 +66,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(126, 51);
+            panel1.Location = new Point(107, 51);
             panel1.Name = "panel1";
             panel1.Size = new Size(79, 60);
             panel1.TabIndex = 2;
@@ -108,38 +108,40 @@
             labelStatus.AutoSize = true;
             labelStatus.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelStatus.ForeColor = Color.Red;
-            labelStatus.Location = new Point(245, 15);
+            labelStatus.Location = new Point(227, 15);
             labelStatus.Name = "labelStatus";
             labelStatus.Size = new Size(28, 20);
             labelStatus.TabIndex = 4;
             labelStatus.Text = "Off";
+            labelStatus.Click += labelStatus_Click;
             // 
             // labelDeviceName
             // 
             labelDeviceName.AutoSize = true;
-            labelDeviceName.Location = new Point(211, 56);
+            labelDeviceName.Location = new Point(192, 56);
             labelDeviceName.Margin = new Padding(3, 5, 3, 5);
             labelDeviceName.Name = "labelDeviceName";
             labelDeviceName.Padding = new Padding(0, 0, 0, 5);
-            labelDeviceName.Size = new Size(59, 20);
+            labelDeviceName.Size = new Size(90, 20);
             labelDeviceName.TabIndex = 5;
-            labelDeviceName.Text = "DevName";
+            labelDeviceName.Text = "DevNameString";
             // 
             // labelIP
             // 
             labelIP.AutoSize = true;
-            labelIP.Location = new Point(211, 86);
+            labelIP.Location = new Point(192, 86);
             labelIP.Margin = new Padding(3, 5, 3, 5);
             labelIP.Name = "labelIP";
             labelIP.Padding = new Padding(0, 0, 0, 5);
-            labelIP.Size = new Size(37, 20);
+            labelIP.Size = new Size(100, 20);
             labelIP.TabIndex = 3;
-            labelIP.Text = "DevIP";
+            labelIP.Text = "XXX.XXX.XXX.XXX";
             // 
             // HostCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(labelIP);
             Controls.Add(labelDeviceName);
             Controls.Add(labelStatus);
@@ -147,7 +149,7 @@
             Controls.Add(panel1);
             Controls.Add(buttonStartDevice);
             Name = "HostCard";
-            Size = new Size(298, 132);
+            Size = new Size(301, 130);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
