@@ -213,5 +213,17 @@ namespace RCP
                 MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void openCFG(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo("DeviceConfig.xml") { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

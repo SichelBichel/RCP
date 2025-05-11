@@ -73,6 +73,7 @@
             buttonOpenConfig.TabIndex = 3;
             buttonOpenConfig.Text = "Open Config";
             buttonOpenConfig.UseVisualStyleBackColor = true;
+            buttonOpenConfig.Click += openCFG;
             // 
             // panel1
             // 
@@ -124,7 +125,7 @@
             label1.Name = "label1";
             label1.Size = new Size(75, 15);
             label1.TabIndex = 7;
-            label1.Text = "Version: 1.0.0";
+            label1.Text = "Version: 1.0.1";
             // 
             // linkLabel1
             // 
