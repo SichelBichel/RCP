@@ -24,6 +24,7 @@ namespace RCP
 
             labelDeviceName.Text = config.DeviceName;
             labelHostName.Text = config.HostName;
+            labelIP.Text = config.DeviceIP;
 
             UpdateStatus(config.IsOnline);
 
@@ -68,6 +69,11 @@ namespace RCP
         }
 
         private void labelStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelIP_Click(object sender, EventArgs e)
         {
 
         }

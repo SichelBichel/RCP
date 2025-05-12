@@ -43,11 +43,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(31, 5);
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label1.Location = new Point(22, 5);
             label1.Margin = new Padding(3, 5, 3, 5);
             label1.Name = "label1";
             label1.Padding = new Padding(0, 0, 0, 5);
-            label1.Size = new Size(45, 20);
+            label1.Size = new Size(46, 20);
             label1.TabIndex = 0;
             label1.Text = "Device:";
             label1.Click += label1_Click;
@@ -68,7 +69,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(107, 51);
             panel1.Name = "panel1";
-            panel1.Size = new Size(79, 60);
+            panel1.Size = new Size(67, 60);
             panel1.TabIndex = 2;
             // 
             // label3
@@ -84,11 +85,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(53, 35);
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label2.Location = new Point(47, 35);
             label2.Margin = new Padding(3, 5, 3, 5);
             label2.Name = "label2";
             label2.Padding = new Padding(0, 0, 0, 5);
-            label2.Size = new Size(20, 20);
+            label2.Size = new Size(21, 20);
             label2.TabIndex = 1;
             label2.Text = "IP:";
             label2.Click += label2_Click_1;
@@ -118,24 +120,27 @@
             // labelDeviceName
             // 
             labelDeviceName.AutoSize = true;
-            labelDeviceName.Location = new Point(192, 56);
+            labelDeviceName.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            labelDeviceName.Location = new Point(180, 56);
             labelDeviceName.Margin = new Padding(3, 5, 3, 5);
             labelDeviceName.Name = "labelDeviceName";
             labelDeviceName.Padding = new Padding(0, 0, 0, 5);
-            labelDeviceName.Size = new Size(90, 20);
+            labelDeviceName.Size = new Size(91, 20);
             labelDeviceName.TabIndex = 5;
             labelDeviceName.Text = "DevNameString";
             // 
             // labelIP
             // 
             labelIP.AutoSize = true;
-            labelIP.Location = new Point(192, 86);
+            labelIP.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            labelIP.Location = new Point(180, 86);
             labelIP.Margin = new Padding(3, 5, 3, 5);
             labelIP.Name = "labelIP";
             labelIP.Padding = new Padding(0, 0, 0, 5);
             labelIP.Size = new Size(100, 20);
             labelIP.TabIndex = 3;
             labelIP.Text = "XXX.XXX.XXX.XXX";
+            labelIP.Click += labelIP_Click;
             // 
             // HostCard
             // 
