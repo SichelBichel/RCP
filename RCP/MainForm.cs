@@ -225,5 +225,31 @@ namespace RCP
                 MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void SearchBarTextChanged(object sender, EventArgs e)
+        {
+            FilteredDeviceCards(searchBox.Text);
+        }
+
+        private void FilteredDeviceCards(string searchTerm)
+        {
+            searchTerm = searchTerm.Trim().ToLower();
+            flowPanelDevices.Controls.Clear();
+
+            var filteredDevices = devices.Where(s =>
+                string.IsNullOrWhiteSpace(searchTerm) ||
+                s.HostName.ToLower().Contains(searchTerm) ||
+                s.DeviceName.ToLower().Contains(searchTerm) ||
+                s.DeviceIP.ToLower().Contains(searchTerm)).ToList();
+
+            foreach ( var device in filteredDevices ) 
+            {
+                var deviceCard = new HostCard(device);
+                deviceCard.OnDeviceStart += StartDevice;
+                flowPanelDevices.Controls.Add(deviceCard);
+
+                _ = UpdateServerStatusAsync(device, deviceCard);
+            }
+        }
     }
 }

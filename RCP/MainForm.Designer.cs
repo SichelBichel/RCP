@@ -38,6 +38,8 @@
             pictureBox2 = new PictureBox();
             label1 = new Label();
             linkLabel1 = new LinkLabel();
+            searchBox = new TextBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -45,11 +47,11 @@
             // 
             // flowPanelDevices
             // 
-            flowPanelDevices.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            flowPanelDevices.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowPanelDevices.BorderStyle = BorderStyle.FixedSingle;
             flowPanelDevices.Location = new Point(12, 102);
             flowPanelDevices.Name = "flowPanelDevices";
-            flowPanelDevices.Size = new Size(942, 369);
+            flowPanelDevices.Size = new Size(942, 433);
             flowPanelDevices.TabIndex = 1;
             flowPanelDevices.Paint += flowPanelDevices_Paint;
             // 
@@ -120,15 +122,17 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Location = new Point(853, 73);
             label1.Name = "label1";
             label1.Size = new Size(75, 15);
             label1.TabIndex = 7;
-            label1.Text = "Version: 1.0.2";
+            label1.Text = "Version: 1.1.0";
             // 
             // linkLabel1
             // 
+            linkLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             linkLabel1.AutoSize = true;
             linkLabel1.Location = new Point(621, 73);
             linkLabel1.Name = "linkLabel1";
@@ -138,11 +142,32 @@
             linkLabel1.Text = "https://rehoga-interactive.com/";
             linkLabel1.LinkClicked += urlOpened;
             // 
+            // searchBox
+            // 
+            searchBox.Anchor = AnchorStyles.Top;
+            searchBox.Location = new Point(340, 47);
+            searchBox.Name = "searchBox";
+            searchBox.Size = new Size(232, 23);
+            searchBox.TabIndex = 9;
+            searchBox.TextChanged += SearchBarTextChanged;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.Location = new Point(340, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(45, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Search:";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(966, 483);
+            ClientSize = new Size(966, 547);
+            Controls.Add(label2);
+            Controls.Add(searchBox);
             Controls.Add(linkLabel1);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
@@ -171,5 +196,7 @@
         private Button button1;
         private Label label1;
         private LinkLabel linkLabel1;
+        private TextBox searchBox;
+        private Label label2;
     }
 }
