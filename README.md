@@ -1,0 +1,1 @@
+RCP (Remote Control Power) is a simple yet effective Windows desktop application designed to help users manage their local network devices. It combines Wake-on-LAN (WOL) capabilities with real-time online status monitoring, making it ideal for home labs, small offices, or tech enthusiasts managing multiple devices.
